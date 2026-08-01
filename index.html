@@ -1,0 +1,753 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="images/logo-emblem-32.png" />
+<link rel="apple-touch-icon" href="images/logo-emblem-180.png" />
+<title>PLAG Ministries | Bishop Paul Locke A. Granadosin</title>
+<meta name="description" content="PLAG Ministries is a 501(c)(3) public charity providing living and medical relief to retired pastors and church workers, preserving oral church history, and equipping the next generation of ministry leaders." />
+<link rel="canonical" href="https://www.plagministries.org/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="PLAG Ministries" />
+<meta property="og:title" content="PLAG Ministries" />
+<meta property="og:description" content="Sustaining the past. Securing the future. A living legacy for pastors and church workers." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Courier+Prime:wght@400;700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+/* =========================================================
+   PLAG Ministries — Stylesheet
+   Palette drawn directly from the official logo: deep navy sky,
+   cream dove, soft plum crescent, warm gold path. A journey
+   motif (winding path toward a cross) replaces any literal
+   wartime imagery — the book is one part of the ministry's
+   story, not its visual language.
+   ========================================================= */
+
+:root {
+  /* --- Color --- */
+  --canvas: #f3ece0;        /* warm cream, from the dove */
+  --canvas-raised: #faf6ec;
+  --navy: #23204a;          /* logo background sky */
+  --navy-deep: #17152f;
+  --ink: #232049;           /* primary text, navy-black */
+  --ink-soft: #57547a;
+  --plum: #7d7098;          /* crescent arc / bishop's stole */
+  --plum-deep: #514868;
+  --gold: #ab8654;          /* winding path / hill */
+  --gold-bright: #c49a63;
+  --line: rgba(35, 32, 73, 0.14);
+  --line-strong: rgba(35, 32, 73, 0.28);
+
+  /* --- Type --- */
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-utility: "Courier Prime", "Courier New", monospace;
+  --font-body: "Public Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --container: 1120px;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.08;
+  margin: 0 0 0.6em;
+  letter-spacing: -0.01em;
+}
+
+.wrap {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.eyebrow {
+  font-family: var(--font-utility);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.85em 1.6em;
+  border-radius: 3px;
+  border: 1.5px solid var(--ink);
+  background: var(--ink);
+  color: var(--canvas);
+  text-decoration: none;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.btn:hover { transform: translateY(-1px); background: var(--navy); border-color: var(--navy); }
+.btn.btn-outline { background: transparent; color: var(--ink); }
+.btn.btn-outline:hover { background: var(--ink); color: var(--canvas); }
+.btn.btn-gold { background: var(--gold-bright); border-color: var(--gold-bright); color: var(--navy-deep); }
+.btn.btn-gold:hover { background: var(--navy); border-color: var(--navy); color: var(--canvas); }
+
+/* ---------- The Path (signature element) ----------
+   A quiet vertical trail connecting each section, echoing the
+   winding path in the logo that leads up toward the cross. */
+.rail { position: relative; }
+.rail::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--gutter);
+  width: 2px;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    var(--line-strong) 0 10px,
+    transparent 10px 20px
+  );
+  display: none;
+}
+@media (min-width: 860px) {
+  .rail::before { display: block; }
+}
+
+.section {
+  position: relative;
+  padding: clamp(3rem, 8vw, 6rem) 0;
+  border-top: 1px solid var(--line);
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.section.is-visible { opacity: 1; transform: translateY(0); }
+.section:first-of-type { border-top: none; }
+
+.section-inner { padding-left: 0; }
+@media (min-width: 860px) {
+  .section-inner { padding-left: 2.75rem; }
+}
+
+.section-head { max-width: 640px; margin-bottom: 2.25rem; }
+.section-head h2 { font-size: clamp(1.8rem, 3.2vw, 2.6rem); }
+.section-head p { color: var(--ink-soft); font-size: 1.05rem; }
+
+.pull {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.3rem, 2.4vw, 1.75rem);
+  line-height: 1.4;
+  color: var(--canvas);
+  background: var(--navy);
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border-radius: 4px;
+}
+.pull footer {
+  margin-top: 0.75rem;
+  font-family: var(--font-utility);
+  font-style: normal;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.card {
+  background: var(--canvas-raised);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1.75rem;
+}
+
+.tag {
+  font-family: var(--font-utility);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1.5px solid var(--plum);
+  color: var(--plum-deep);
+  border-radius: 4px;
+  padding: 0.3em 0.6em;
+  display: inline-block;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+:focus-visible { outline: 3px solid var(--gold-bright); outline-offset: 2px; }
+
+/* ---------- Fix: CSS Grid "blowout" ----------
+   Grid items default to min-width:auto, which lets an image's
+   intrinsic size stop the column from ever shrinking below it,
+   so at in-between viewport widths the box gets forced narrower
+   than the image can fit and it visually distorts. min-width:0
+   lets every grid item shrink normally with the viewport. */
+.grid-2 > *, .grid-3 > * { min-width: 0; }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: color-mix(in srgb, var(--canvas) 92%, transparent);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  flex-wrap: nowrap;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  text-decoration: none;
+  color: var(--ink);
+  white-space: nowrap;
+  flex-shrink: 1;
+  min-width: 0;
+}
+.brand-mark {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: block;
+}
+.tabs {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2.5vw, 2rem);
+  font-family: var(--font-utility);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.tabs a { text-decoration: none; white-space: nowrap; }
+.tabs a:hover { color: var(--plum-deep); }
+
+.header-actions { display: flex; align-items: center; gap: 0.75rem; flex-shrink: 0; }
+.tabs-cta { text-transform: none; font-family: var(--font-body); letter-spacing: normal; padding: 0.55em 1.2em; white-space: nowrap; }
+
+.nav-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1.5px solid var(--ink);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.mobile-menu { display: none; flex-direction: column; border-top: 1px solid var(--line); }
+
+@media (max-width: 720px) {
+  .tabs { display: none; }
+  .nav-toggle { display: inline-flex; }
+  .brand { font-size: 1.02rem; }
+  .tabs-cta { padding: 0.5em 1em; font-size: 0.88rem; }
+  .mobile-menu.is-open { display: flex; padding: 0.5rem var(--gutter) 1rem; }
+  .mobile-menu a {
+    text-decoration: none;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--line);
+    font-family: var(--font-utility);
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .mobile-menu a:last-child { border-bottom: none; }
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  border-top: 1px solid var(--line-strong);
+  background: var(--navy);
+  color: var(--canvas);
+  padding: 2.5rem 0;
+  margin-top: 2rem;
+}
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 3rem;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.footer-brand-block { display: flex; align-items: center; gap: 1rem; max-width: 34ch; }
+.footer-logo { width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0; }
+.footer-legal { color: color-mix(in srgb, var(--canvas) 70%, transparent); font-size: 0.85rem; margin: 0; }
+.footer-links { display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.9rem; }
+.footer-links a { text-decoration: none; opacity: 0.85; }
+.footer-links a:hover { opacity: 1; text-decoration: underline; }
+
+/* ---------- Hero ---------- */
+.hero { padding: clamp(2.5rem, 8vw, 5rem) 0 clamp(2rem, 6vw, 3rem); }
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+@media (max-width: 780px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-figure { order: -1; max-width: 260px; margin: 0 auto; }
+}
+.hero-copy h1 { font-size: clamp(2.6rem, 6.5vw, 4.4rem); margin-top: 0.4em; }
+.hero-copy h1 em { font-style: italic; color: var(--plum-deep); }
+.hero-sub { max-width: 46ch; font-size: 1.1rem; color: var(--ink-soft); margin: 1.2em 0 1.8em; }
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.hero-figure { position: relative; justify-self: center; min-width: 0; }
+.hero-figure img {
+  border-radius: 4px;
+  box-shadow: 0 24px 48px -20px rgba(23, 21, 47, 0.45);
+  transform: rotate(2.5deg);
+  width: 100%;
+  height: auto;
+}
+
+/* ---------- Shared grids ---------- */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+}
+@media (max-width: 780px) { .grid-2 { grid-template-columns: 1fr; } }
+
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+@media (max-width: 900px) { .grid-3 { grid-template-columns: 1fr; } }
+
+.board-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.25rem; }
+.board-card { text-align: center; }
+.board-card h3 { margin: 0 0 0.2em; font-size: 1.05rem; }
+.board-card p { margin: 0; font-size: 0.85rem; color: var(--ink-soft); }
+.fine-print { font-size: 0.85rem; color: var(--ink-soft); margin: 0.75em 0 0; }
+
+.grid-2-reverse-figure { order: -1; }
+@media (min-width: 781px) { .grid-2-reverse-figure { order: 0; } }
+
+/* Programs */
+.program-card h3 { font-size: 1.25rem; margin-top: 0.75rem; }
+.program-card ul { margin: 1rem 0 0; padding-left: 1.1rem; color: var(--ink-soft); font-size: 0.92rem; }
+.program-card li { margin-bottom: 0.3rem; }
+
+/* Story */
+.story-figure { justify-self: center; min-width: 0; }
+@media (max-width: 780px) { .story-figure { max-width: 220px; } }
+.story-figure img {
+  border-radius: 4px;
+  border: 6px solid var(--plum);
+  box-shadow: 0 20px 40px -18px rgba(23, 21, 47, 0.4);
+  width: 100%;
+  height: auto;
+}
+.story-facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+.story-facts p:last-child { font-weight: 600; margin: 0.2em 0 0; }
+
+/* Book */
+.book-grid {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: center;
+}
+@media (max-width: 780px) {
+  .book-grid { grid-template-columns: 1fr; }
+  .book-figure { max-width: 220px; }
+}
+.book-figure { min-width: 0; }
+.book-figure img {
+  border-radius: 4px;
+  transform: rotate(-2deg);
+  box-shadow: 0 20px 40px -18px rgba(23, 21, 47, 0.4);
+  width: 100%;
+  height: auto;
+}
+
+/* Give + Partner */
+.give-card { background: var(--navy); color: var(--canvas); border-color: var(--navy); }
+.give-card p { color: color-mix(in srgb, var(--canvas) 88%, transparent); }
+
+/* Give page */
+.give-page { padding: clamp(2.5rem, 6vw, 4rem) 0 clamp(4rem, 8vw, 6rem); max-width: 680px; }
+.give-intro { color: var(--ink-soft); font-size: 1.05rem; margin-bottom: 2.5rem; }
+.give-note { margin-top: 2rem; font-size: 0.9rem; color: var(--ink-soft); border-top: 1px solid var(--line); padding-top: 1.5rem; }
+.donor-embed { display: flex; justify-content: center; }
+
+/* Legal pages */
+.legal-page { padding: clamp(2.5rem, 6vw, 4rem) 0 clamp(4rem, 8vw, 6rem); max-width: 720px; }
+.legal-body { color: var(--ink-soft); }
+.legal-body h2 { font-size: 1.3rem; color: var(--ink); margin-top: 2em; }
+.legal-body p, .legal-body li { margin-bottom: 1em; }
+.legal-body ul { padding-left: 1.3rem; }
+.legal-body code { font-family: var(--font-utility); background: var(--canvas-raised); padding: 0.15em 0.4em; border-radius: 3px; }
+.legal-updated { font-size: 0.85rem; color: var(--ink-soft); margin-bottom: 2rem; }
+
+</style>
+</head>
+<body>
+<a href="#main" class="visually-hidden">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="brand">
+      <img class="brand-mark" src="images/logo-emblem-64.png" alt="PLAG Ministries emblem" width="36" height="36" />
+      PLAG Ministries
+    </a>
+    <nav class="tabs" aria-label="Primary">
+      <a href="#story">The Story</a>
+      <a href="#work">Programs</a>
+      <a href="#book">The Book</a>
+    </nav>
+    <div class="header-actions">
+      <a href="give.html" class="btn btn-gold tabs-cta">Give</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile">
+    <a href="#story">The Story</a>
+    <a href="#work">Programs</a>
+    <a href="#book">The Book</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Est. in memory of Bishop &amp; Mrs. Paul Locke A. Granadosin</p>
+        <h1>Faith that gets its<br /><em>boots muddy.</em></h1>
+        <p class="hero-sub">
+          Sustaining the past. Securing the future. Continuing a living legacy
+          for the pastors and church workers who gave their lives to others
+          &mdash; and were never given a pension for it.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="give.html">Give Today</a>
+          <a class="btn btn-outline" href="#story">Read the Story</a>
+        </div>
+      </div>
+      <div class="hero-figure">
+        <img
+          src="images/lolo-book.webp"
+          alt="Book cover: Bishop in the Muddy Boots, a Filipino journey from foxhole to faith, by Paul Locke A. Granadosin"
+          width="420" height="600" loading="eager" />
+      </div>
+    </div>
+  </section>
+
+  <div class="rail wrap">
+
+    <section class="section" id="welcome">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2>Welcome to PLAG Ministries</h2>
+          <p>A 501(c)(3) tax-exempt public charity dedicated to honoring faithful service, preserving community church history, and equipping the next generation of ministry leadership.</p>
+        </div>
+        <div class="grid-2">
+          <p>
+            Many retired pastors, deaconesses, and church staff spend their lives
+            serving local communities without access to structured pension plans or
+            comprehensive retirement benefits. When unexpected health challenges or
+            financial burdens arise in their later years, they often face these
+            hardships in silence. At PLAG Ministries, we step into the gap by
+            offering direct living assistance, medical grant relief, and ongoing
+            pastoral care.
+          </p>
+          <blockquote class="pull">
+            &ldquo;Observe the presence of other anti-unity forces&hellip; you name
+            it, we have them.&rdquo;
+            <footer>&mdash; Bishop Paul Locke A. Granadosin</footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2>Programs</h2>
+          <p>Three programs, one purpose: honor faithful service, preserve community history, and equip the next generation of church leadership.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card program-card">
+            <span class="tag">Cornerstone</span>
+            <h3>Ministerial Aid &amp; Care</h3>
+            <p>Direct financial aid, living assistance, and healthcare support for retired pastors, deaconesses, and surviving spouses who lack adequate retirement safety nets.</p>
+            <ul>
+              <li>Living Assistance</li>
+              <li>Medical &amp; Healthcare Relief</li>
+              <li>Surviving Spouse Support</li>
+            </ul>
+          </article>
+          <article class="card program-card">
+            <span class="tag">Investing Forward</span>
+            <h3>Educational &amp; Leadership Grants</h3>
+            <p>Educational grants and support for individuals pursuing theological education and ministry training, so faithful leadership continues.</p>
+            <ul>
+              <li>Ministry Student Support</li>
+              <li>Leadership Equipping</li>
+            </ul>
+          </article>
+          <article class="card program-card">
+            <span class="tag">Living Archive</span>
+            <h3>Legacy &amp; Oral History Preservation</h3>
+            <p>Recorded testimonies, archival work, and educational publications documenting the real, living faith of church leaders and community members.</p>
+            <ul>
+              <li>Testimony &amp; Story Capture</li>
+              <li>Archival Work</li>
+              <li>Educational Publications</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="story">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2>Our Roots &amp; Inspiration</h2>
+          <p>Inspired by the life and enduring faith of Bishop Paul Locke A. Granadosin and Socorro Granadosin.</p>
+        </div>
+        <div class="grid-2">
+          <div class="story-copy">
+            <p>
+              From the sugarcane plantations of Hawaii to the Philippines at war,
+              Bishop Granadosin&rsquo;s path was built on survival and the weight
+              of a divine calling &mdash; the first Filipino ever elected as a
+              &ldquo;Bishop for Life,&rdquo; and the only man to lead the entire
+              United Methodist Church of the Philippines alone through the years
+              of Martial Law.
+            </p>
+            <p>
+              By capturing raw testimonies, preserving the history of Christian
+              leadership, and extending practical care to those who walk in his
+              footsteps, we honor his memory while building a lasting safety net
+              for the servants who came after him.
+            </p>
+            <div class="story-facts">
+              <div><p class="eyebrow">Status</p><p>501(c)(3) tax-exempt public charity</p></div>
+              <div><p class="eyebrow">Registered</p><p>California non-profit corporation</p></div>
+              <div><p class="eyebrow">EIN</p><p>42-1939971</p></div>
+            </div>
+          </div>
+          <figure class="story-figure">
+            <img
+              src="images/bishop.png"
+              alt="Bishop Paul Locke A. Granadosin in clerical vestments, wearing a purple stole"
+              width="360" height="440" loading="lazy" />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="book">
+      <div class="section-inner">
+        <p class="eyebrow" style="margin-bottom:1.1rem">Coming Soon</p>
+        <div class="book-grid">
+          <figure class="book-figure">
+            <img
+              src="images/lolo-book.webp"
+              alt="Book cover: Bishop in the Muddy Boots"
+              width="300" height="428" loading="lazy" />
+          </figure>
+          <div class="book-copy">
+            <p class="eyebrow">Pre-orders opening soon</p>
+            <h2>Bishop in the Muddy Boots</h2>
+            <p>
+              A young pastor, initially rejected for his halting Tagalog, who
+              found the heart of God in a Quonset hut church where the
+              floorboards shook like a drum. A survivor of heart attacks who
+              returned from the United States to lead relief efforts after a
+              mountain-moving earthquake. A life much bigger than any one story.
+            </p>
+            <p>
+              Every advance copy sold directly funds PLAG Ministries&rsquo;
+              living assistance and medical relief for retired pastors and
+              church workers in need.
+            </p>
+            <p class="fine-print">100% of net proceeds from book sales support PLAG Ministries&rsquo; programs.</p>
+            <a class="btn btn-outline" href="mailto:hope@plagministries.org?subject=Notify%20me%20-%20Bishop%20in%20the%20Muddy%20Boots">Notify Me at Launch</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="leadership">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2>Our Board</h2>
+          <p>The volunteers stewarding PLAG Ministries&rsquo; mission today.</p>
+        </div>
+        <div class="board-grid">
+          <div class="card board-card">
+            <h3>Charlene Mendillo Granadosin</h3>
+            <p>President</p>
+          </div>
+          <div class="card board-card">
+            <h3>Sylwyn Sheen Alba Salvador</h3>
+            <p>Secretary</p>
+          </div>
+          <div class="card board-card">
+            <h3>Charles Locke Mella Granadosin</h3>
+            <p>Treasurer</p>
+          </div>
+          <div class="card board-card">
+            <h3>Exodus Mella Granadosin</h3>
+            <p>Board Member</p>
+          </div>
+          <div class="card board-card">
+            <h3>Rommel Perez</h3>
+            <p>Board Member</p>
+          </div>
+          <div class="card board-card">
+            <h3>Rene Sambilay Concepcion</h3>
+            <p>Board Member</p>
+          </div>
+          <div class="card board-card">
+            <h3>Alexis A. Cambe</h3>
+            <p>Board Member</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="give">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2>Partner With Us</h2>
+          <p>Through tax-deductible donations, pre-ordering the book, or founding sponsorship, your support keeps a promise made decades ago.</p>
+        </div>
+        <div class="grid-2">
+          <div class="card give-card">
+            <h3>Give</h3>
+            <p>100% tax-deductible. Every gift funds living assistance, medical relief, and the preservation of a story that shaped a nation&rsquo;s church.</p>
+            <a class="btn btn-gold" href="give.html">Give Today</a>
+          </div>
+          <div class="card">
+            <h3>Become a Founding Sponsor</h3>
+            <p>We welcome corporate partners, local businesses, and community organizations to join us as founding sponsors &mdash; connecting your organization to a mission of care and relief, with visibility across our programs and events.</p>
+            <p class="fine-print">Sponsorships that include recognition benefits (e.g. logo placement, event visibility) are tax-deductible only to the extent the gift exceeds the fair market value of those benefits.</p>
+            <a class="btn btn-outline" href="mailto:hope@plagministries.org">Talk to Our Team</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand-block">
+      <img class="footer-logo" src="images/logo-emblem-64.png" alt="" width="56" height="56" />
+      <div>
+        <p style="font-family:var(--font-display);font-size:1.1rem;margin:0 0 0.4em;">PLAG Ministries</p>
+        <p class="footer-legal">PLAG Ministries is a registered 501(c)(3) tax-exempt public charity and California non-profit corporation.</p>
+        <p class="footer-legal">EIN: 42-1939971</p>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="terms-of-service.html">Terms of Service</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="https://www.facebook.com/plagministries" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.youtube.com/@PLAGMinistries" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://app.candid.org/profile/16693444/plag-ministries-42-1939971" target="_blank" rel="noopener">Candid Profile</a>
+      <a href="mailto:hope@plagministries.org">hope@plagministries.org</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const navToggle = document.querySelector('.nav-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (navToggle && mobileMenu) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+    mobileMenu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  const sections = document.querySelectorAll('.section');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        }
+      },
+      { threshold: 0.12 }
+    );
+    sections.forEach((el) => io.observe(el));
+  } else {
+    sections.forEach((el) => el.classList.add('is-visible'));
+  }
+});
+
+</script>
+</body>
+</html>
