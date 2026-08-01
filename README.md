@@ -81,18 +81,6 @@ Note: locally, `/give.html` always shows the USA version — the Philippines
 routing only happens once the Cloudflare Worker is live in front of your
 real domain.
 
-## Still to do
-
-- [ ] Replace `REPLACE_USA_SLUG` and `REPLACE_PH_SLUG` in `give-usa.html`
-      and `give-ph.html` with your real Donorbox campaign slugs.
-- [ ] Set up the Cloudflare Worker (`cloudflare-worker/README.md`) once the
-      custom domain is live, so Philippines visitors actually get routed.
-- [ ] Consider self-hosting the photos currently pulled from your old
-      Squarespace CDN (`images.squarespace-cdn.com/...` URLs in `index.html`)
-      into this repo's `/images` folder — if you ever cancel the Squarespace
-      plan, those image links could stop working. Not urgent, just a
-      dependency worth knowing about.
-
 ## Design notes
 
 Palette and iconography are drawn directly from the official PLAG
