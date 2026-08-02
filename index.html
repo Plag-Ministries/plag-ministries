@@ -3,6 +3,15 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9MVKPE6MR2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9MVKPE6MR2');
+</script>
 <link rel="icon" type="image/png" href="images/logo-emblem-32.png" />
 <link rel="apple-touch-icon" href="images/logo-emblem-180.png" />
 <title>PLAG Ministries | Bishop Paul Locke A. Granadosin</title>
@@ -361,6 +370,9 @@ h1, h2, h3 {
 
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
 @media (max-width: 900px) { .grid-3 { grid-template-columns: 1fr; } }
+.section-cta { margin-top: 2.25rem; }
+.contact-form-embed { max-width: 650px; }
+.contact-form-embed iframe { width: 100%; max-width: 100%; display: block; }
 
 .board-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.25rem; }
 .board-card { text-align: center; }
@@ -450,6 +462,8 @@ h1, h2, h3 {
       <a href="#story">The Story</a>
       <a href="#work">Programs</a>
       <a href="#book">The Book</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#contact">Contact</a>
     </nav>
     <div class="header-actions">
       <a href="give.html" class="btn btn-gold tabs-cta">Give</a>
@@ -462,6 +476,8 @@ h1, h2, h3 {
     <a href="#story">The Story</a>
     <a href="#work">Programs</a>
     <a href="#book">The Book</a>
+    <a href="#leadership">Leadership</a>
+    <a href="#contact">Contact</a>
   </nav>
 </header>
 
@@ -553,6 +569,9 @@ h1, h2, h3 {
               <li>Educational Publications</li>
             </ul>
           </article>
+        </div>
+        <div class="section-cta">
+          <a class="btn btn-gold" href="give.html">Support These Programs</a>
         </div>
       </div>
     </section>
@@ -684,6 +703,18 @@ h1, h2, h3 {
             <p class="fine-print">Sponsorships that include recognition benefits (e.g. logo placement, event visibility) are tax-deductible only to the extent the gift exceeds the fair market value of those benefits.</p>
             <a class="btn btn-outline" href="mailto:hope@plagministries.org">Talk to Our Team</a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2>Get in Touch</h2>
+          <p>Questions about our programs, the book, or partnering with us? Send us a message and our team will follow up.</p>
+        </div>
+        <div class="contact-form-embed">
+          <iframe src="https://forms.monday.com/forms/embed/85479fbc7374bfbb4efb7abe5c6defc6?r=use1" width="650" height="500" style="border: 0;" title="Contact PLAG Ministries"></iframe>
         </div>
       </div>
     </section>
