@@ -18,6 +18,9 @@ depending on how it's opened.
   GitHub Pages alone, with everyone defaulting to USD.
 - **`give-usa.html`** / **`give-ph.html`** — the two actual regional donor
   pages. These aren't linked from anywhere in the site's navigation.
+- **`book.html`** — the *Bishop in the Muddy Boots* pre-order page ($30,
+  pick up at the After the Journey concert, Dec 12). Payment goes through
+  a Stripe Payment Link (purchases, not donations, so not Donorbox).
 - **`cloudflare-worker/`** — one small, free Cloudflare Worker that (once
   set up) intercepts requests to `/give.html` and serves `give-ph.html`'s
   content to Philippines visitors and `give-usa.html`'s content to everyone
