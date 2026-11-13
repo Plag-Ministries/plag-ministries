@@ -15,9 +15,9 @@
 <link rel="icon" type="image/png" href="images/logo-emblem-32.png" />
 <link rel="apple-touch-icon" href="images/logo-emblem-180.png" />
 <title>Pre-order Bishop in the Muddy Boots | PLAG Ministries</title>
-<meta name="description" content="Pre-order Bishop in the Muddy Boots, the autobiography of Bishop Paul Locke A. Granadosin. $30, pick up December 12 at the After the Journey concert." />
+<meta name="description" content="Pre-order Bishop in the Muddy Boots, the autobiography of Bishop Paul Locke A. Granadosin. $30, embossed with the Bishop&rsquo;s dry seal. Order by November 16 to pick up December 12 at the After the Journey concert." />
 <meta property="og:title" content="Pre-order Bishop in the Muddy Boots" />
-<meta property="og:description" content="$30 &middot; Limited copies &middot; Pick up Dec 12 at After the Journey." />
+<meta property="og:description" content="$30 &middot; Only 30 in the first batch &middot; Order by Nov 16 to pick up Dec 12 at After the Journey." />
 <meta property="og:image" content="https://www.plagministries.org/images/book-in-hand.jpg" />
 <link rel="canonical" href="https://www.plagministries.org/book.html" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -463,6 +463,9 @@ h1, h2, h3 {
 .bk-proceeds span { color: var(--gold-bright); }
 
 /* Countdown strip */
+.bk-lede:has(+ .bk-lede) { margin-bottom: 1rem; }
+.bk-count-label { font-family: var(--font-utility); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-bright); margin: 0 0 0.6rem; }
+[hidden] { display: none !important; }
 .bk-countdown {
   display: flex;
   gap: 0.6rem;
@@ -741,10 +744,19 @@ h1, h2, h3 {
         <h1>Bishop in the<br /><em>Muddy Boots</em></h1>
         <p class="bk-sub">A Filipino journey from foxhole to faith &mdash; an autobiography by Paul Locke A. Granadosin</p>
         <p class="bk-lede">
-          The books are here. Reserve yours now and pick it up in person at
-          <strong>After the Journey</strong>, our concert on December&nbsp;12.
-          Copies on hand are limited &mdash; every pre-order helps us bring in
-          the next batch.
+          The books are here, and every copy is embossed with the Bishop&rsquo;s
+          dry seal. We have <strong>only 30 copies</strong> in our first batch.
+        </p>
+        <p class="bk-lede" data-before-deadline>
+          <strong>Pre-order by Monday, November&nbsp;16</strong> and we&rsquo;ll
+          have your copy waiting at <strong>After the Journey</strong>, our
+          concert on December&nbsp;12 &mdash; even if the first 30 are gone,
+          orders by the 16th go into our second printing, which arrives in
+          time for the concert.
+        </p>
+        <p class="bk-lede" data-after-deadline hidden>
+          Concert pickup orders closed on November&nbsp;16. You can still
+          order &mdash; copies now ship by mail for an additional shipping cost.
         </p>
         <p class="bk-proceeds">
           <span aria-hidden="true">&#10022;</span>
@@ -752,6 +764,7 @@ h1, h2, h3 {
           living assistance and medical relief for retired pastors and church
           workers in need.
         </p>
+        <p class="bk-count-label" id="countdown-label" hidden>Pre-orders for concert pickup close in</p>
         <div class="bk-countdown" id="countdown" aria-live="polite" hidden>
           <div class="bk-count-cell"><b data-unit="d">--</b><small>Days</small></div>
           <div class="bk-count-cell"><b data-unit="h">--</b><small>Hours</small></div>
@@ -774,8 +787,8 @@ h1, h2, h3 {
 
   <div class="bk-ribbon" aria-hidden="true">
     <div class="bk-ribbon-track">
-      <span>Limited copies on hand</span><span>Pick up Dec 12 at After the Journey</span><span>100% of net proceeds support the ministry</span><span>Now in print</span>
-      <span>Limited copies on hand</span><span>Pick up Dec 12 at After the Journey</span><span>100% of net proceeds support the ministry</span><span>Now in print</span>
+      <span>Only 30 in the first batch</span><span>Order by Nov 16 for concert pickup</span><span>Embossed with the Bishop&rsquo;s dry seal</span><span>Pick up Dec 12 at After the Journey</span><span>100% of net proceeds support the ministry</span><span>Now in print</span>
+      <span>Only 30 in the first batch</span><span>Order by Nov 16 for concert pickup</span><span>Embossed with the Bishop&rsquo;s dry seal</span><span>Pick up Dec 12 at After the Journey</span><span>100% of net proceeds support the ministry</span><span>Now in print</span>
     </div>
   </div>
 
@@ -811,8 +824,8 @@ h1, h2, h3 {
             alt="The book's introduction page, signed by Bishop Paul Locke A. Granadosin and embossed with his United Methodist Church dry seal"
             width="900" height="1200" loading="lazy" />
           <div>
-            <p class="eyebrow">A detail worth holding</p>
-            <p>The introduction carries Bishop Paul&rsquo;s signature and the raised impression of his United Methodist Church episcopal dry seal.</p>
+            <p class="eyebrow">Every copy, sealed</p>
+            <p>Each copy is embossed with Bishop Paul&rsquo;s United Methodist Church episcopal dry seal, set beside his signature on the introduction page.</p>
           </div>
         </div>
       </div>
@@ -839,11 +852,17 @@ h1, h2, h3 {
   <section class="bk-section bk-order-wrap" id="order">
     <div class="wrap">
       <p class="eyebrow" style="color:var(--gold-bright)">Reserve your copy</p>
-      <h2>Pre-order now, pick up December&nbsp;12.</h2>
-      <p class="section-lede">
-        We have a limited number of copies on hand. If enough pre-orders come
-        in, we&rsquo;ll order another batch &mdash; so reserving early is the
-        best way to make sure there&rsquo;s a copy with your name on it.
+      <h2 data-before-deadline>Order by November&nbsp;16, pick up December&nbsp;12.</h2>
+      <h2 data-after-deadline hidden>Order now, delivered by mail.</h2>
+      <p class="section-lede" data-before-deadline>
+        Only 30 copies are in our first batch, each embossed with the
+        Bishop&rsquo;s dry seal. Orders placed by Monday, November 16 are
+        guaranteed for pickup at the concert &mdash; if the first 30 sell out,
+        we&rsquo;ll print a second batch in time.
+      </p>
+      <p class="section-lede" data-after-deadline hidden>
+        Concert pickup orders closed on November 16. Copies ordered now ship
+        by mail for an additional shipping cost.
       </p>
 
       <div class="bk-ticket">
@@ -852,10 +871,15 @@ h1, h2, h3 {
             <p class="eyebrow">Per copy</p>
             <div class="bk-price"><small>$</small>30</div>
           </div>
-          <div class="bk-stub-meta">
+          <div class="bk-stub-meta" data-before-deadline>
+            Order by <strong>Mon, Nov 16</strong><br />
             Pick up at<br />
             <strong>After the Journey</strong><br />
             Saturday, Dec 12
+          </div>
+          <div class="bk-stub-meta" data-after-deadline hidden>
+            Ships by mail<br />
+            <strong>+ shipping cost</strong>
           </div>
         </div>
         <div class="bk-ticket-body">
@@ -867,8 +891,13 @@ h1, h2, h3 {
             </a>
           </div>
           <p class="bk-fine">
-            Your book will be waiting for you at the book table &mdash; just
-            give us the name on your order. Because you&rsquo;re receiving a
+            <span data-before-deadline>Orders by November 16: your book will be
+            waiting for you at the book table &mdash; just give us the name on
+            your order. Orders after November 16 ship by mail for an additional
+            shipping cost; we&rsquo;ll email you to arrange it.</span>
+            <span data-after-deadline hidden>We&rsquo;ll email you after your
+            order to arrange shipping and the shipping cost.</span>
+            Because you&rsquo;re receiving a
             book in exchange, a $30 pre-order is a purchase rather than a
             tax-deductible gift. Questions? Email
             <a href="mailto:hope@plagministries.org?subject=Book%20pre-order">hope@plagministries.org</a>.
@@ -885,9 +914,9 @@ h1, h2, h3 {
         <h2>Three easy steps.</h2>
       </div>
       <ol class="bk-steps">
-        <li class="card"><h3>Reserve</h3><p>Pre-order your copy for $30 through our secure Stripe checkout.</p></li>
+        <li class="card"><h3>Reserve by Nov 16</h3><p>Pre-order your copy for $30 through our secure Stripe checkout.</p></li>
         <li class="card"><h3>Get your receipt</h3><p>You&rsquo;ll receive an email confirmation &mdash; that&rsquo;s your spot on the list.</p></li>
-        <li class="card"><h3>Pick it up</h3><p>Collect your book at the After the Journey concert on December 12.</p></li>
+        <li class="card"><h3>Pick it up</h3><p>Collect your book at the After the Journey concert on December 12. (Orders after November 16 ship by mail for an additional cost.)</p></li>
       </ol>
     </div>
   </section>
@@ -914,7 +943,7 @@ h1, h2, h3 {
 </main>
 
 <div class="bk-sticky" id="bk-sticky" aria-hidden="true">
-  <p><strong>Bishop in the Muddy Boots</strong><br />$30 &middot; pick up Dec 12</p>
+  <p><strong>Bishop in the Muddy Boots</strong><br />$30 &middot; order by Nov 16</p>
   <a class="btn btn-gold" href="#order" tabindex="-1">Pre-order</a>
 </div>
 
@@ -977,13 +1006,20 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     sections.forEach((el) => el.classList.add('is-visible'));
   }
-  // Countdown to the After the Journey concert (Dec 12, 2026, local time)
+  // Countdown to the concert-pickup pre-order deadline: Mon Nov 16, 2026,
+  // 11:59 PM Pacific. After it passes, swap in the ship-by-mail copy.
   const cd = document.getElementById('countdown');
-  const target = new Date(2026, 11, 12, 0, 0, 0);
+  const cdLabel = document.getElementById('countdown-label');
+  const target = new Date(Date.UTC(2026, 10, 17, 7, 59, 0));
   const tick = () => {
     const ms = target - new Date();
-    if (ms <= 0) { cd.hidden = true; return false; }
-    cd.hidden = false;
+    if (ms <= 0) {
+      cd.hidden = true; cdLabel.hidden = true;
+      document.querySelectorAll('[data-before-deadline]').forEach((el) => { el.hidden = true; });
+      document.querySelectorAll('[data-after-deadline]').forEach((el) => { el.hidden = false; });
+      return false;
+    }
+    cd.hidden = false; cdLabel.hidden = false;
     const d = Math.floor(ms / 86400000), h = Math.floor(ms / 3600000) % 24, m = Math.floor(ms / 60000) % 60;
     cd.querySelector('[data-unit="d"]').textContent = d;
     cd.querySelector('[data-unit="h"]').textContent = String(h).padStart(2, '0');
